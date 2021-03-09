@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "system_error": "c",
+        "module.h": "c",
+        "wait.h": "c",
+        "ukunetik.h": "c",
+        "stdbool.h": "c"
+    },
+    "C_Cpp.default.includePath": ["${default}", "/lib/modules/5.4.0-58-generic/build/include/"]
+}
