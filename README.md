@@ -2,13 +2,13 @@
 A sample Linux Kernel Module
 
 ## Background
-This project is aimed at those that want to learn how to write a linux kernel module (maybe a device driver) but maybe never wrote a one, or maybe they have but they want to learn as much as they can. The source code for the module is full of explanatory comments that describe the use of the functions. For any questions or clarifications, please open a new issue and I (or someone else from the communicaty) will attempt to answer it.  
+This project is aimed at those that want to learn how to write a Linux kernel module (maybe a device driver) but perhaps never wrote one, or perhaps they have but they want to learn more. The source code for the module has many explanatory comments that describe the use of the APIs and names used. For any questions or clarifications, please open a new issue and I (or someone else from the community) will attempt to answer it.  
 This kernel module is a sample driver created for a fictional USB device that captures temperature and humidity data.  
-The role of the driver is to create a device node (`/dev/kunetik`) that users can interact with to ask the fictional device to collect temperature and humidity data.  
-_Note: since we don't really have a USB device, the driver is implemented with the standard `init` and `exit` functions rather than `probe` and `remove`._
+The role of the driver is to create a device node (`/dev/kunetik`) that users can interact with to ask the fictional device to collect temperature and humidity data from our fictional device. In a scenario with a real device, the driver would also interact that USB device to perform its functions.  
+_Note: since we don't really have a USB device, the driver is implemented with the standard `init` and `exit` functions rather than `probe` and `remove`, and routines that would require communication with the device simply simulate data acquisition or device control._
 
 ## Usage
-The module has been tested in Ubuntu 18.04 and 20.04.
+The module has been tested in Ubuntu 18.04 and 20.04 and Kernels 4.18.x and 5.4.x. Unless the kernel is too old, it will most likely work with your Linux kernel as well.
 
 ### Source Code
 
@@ -25,7 +25,7 @@ Go to the source code directory and execute:
 That command will insert the module and set the character device permissions.
 
 ### Sample User Program
-There is an included program `kunetikc` that uses the `/dev/kunetik/` device to print simulated temperature and humidity data. To use it, simply navigate to the `kunetik_user` sub-directory, compile the program by executing:  
+There is an included program `kunetikc` that uses the `/dev/kunetik/` device to print simulated temperature and humidity data. To use it, simply navigate to the `kunetik_user` sub-directory, and compile the program by executing:  
 `$ make`  
 Finally, run it:  
 `$ ./kunetikc`
